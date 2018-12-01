@@ -23,3 +23,7 @@ This domain is just an extension to the main model which adds illustrations for 
 ### And Finally the Data Model
 
 ![Screenshot](./images/Data%20Model.jpg)
+
+#### Notes:
+- No tests available since not being part of the requirements
+- The UMS has been implemented in a modular file structure (not a bundle) as a Symfony experiment 
