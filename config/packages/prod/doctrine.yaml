@@ -10,6 +10,13 @@ doctrine:
         result_cache_driver:
             type: service
             id: doctrine.result_cache_provider
+        auto_mapping: false
+        entity_managers:
+            default:
+                mappings:
+                    name:
+                        type: php
+                        dir: %kernel.root_dir%/src/UMS/Entity
 
 services:
     doctrine.result_cache_provider:

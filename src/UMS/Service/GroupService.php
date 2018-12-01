@@ -45,7 +45,7 @@ class GroupService
      *
      * @param int $groupId
      * @return bool | false in case not deletable because of attached members
-     * @throws EntityNotFoundException
+     * @throws EntityNotFoundException|NotEmptyGroupException
      */
     public function delete(int $groupId): bool
     {

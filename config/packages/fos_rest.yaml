@@ -1,0 +1,15 @@
+# Read the documentation: https://symfony.com/doc/master/bundles/FOSRestBundle/index.html
+fos_rest:
+  view:
+    view_response_listener:  true
+  exception:
+    enabled: true
+    exception_controller: 'fos_rest.exception.controller:showAction'
+    codes:
+      Doctrine\ORM\EntityNotFoundException: HTTP_NOT_FOUND
+      Doctrine\ORM\ORMInvalidArgumentException: HTTP_UNPROCESSABLE_ENTITY
+      \LogicException: HTTP_BAD_REQUEST
+      \DomainException: HTTP_BAD_REQUEST
+  format_listener:
+    rules:
+    - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json ] }
