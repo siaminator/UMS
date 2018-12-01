@@ -7,4 +7,4 @@ Below are the Some UML Models of the project:
 
 A simple Data Model
 
-![Alt text](images/Simple Domain Model.jpg.jpg "Simple Data Model")
+![Screenshot](./images/create.jpg)
