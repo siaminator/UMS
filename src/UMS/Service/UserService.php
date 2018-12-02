@@ -10,12 +10,13 @@
 
 namespace App\UMS\Service;
 
+use App\UMS\Contract\UserServiceContract;
 use App\UMS\Entity\User;
 use App\UMS\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;
 
-class UserService
+class UserService implements UserServiceContract
 {
     private $userRepository;
     private $entityManager;

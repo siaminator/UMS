@@ -2,7 +2,7 @@
 
 namespace App\UMS\Controller\Api;
 
-use App\UMS\Service\UserService;
+use App\UMS\Contract\UserServiceContract;
 use Doctrine\ORM\EntityNotFoundException;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -22,10 +22,10 @@ class UserController extends FOSRestController
     /**
      * UserController constructor.
      *
-     * @param UserService $userService
+     * @param UserServiceContract $userService
      * @param RequestStack $request
      */
-    public function __construct(UserService $userService, RequestStack  $request)
+    public function __construct(UserServiceContract $userService, RequestStack  $request)
     {
         $this->userService = $userService;
         $this->request = $request->getCurrentRequest();

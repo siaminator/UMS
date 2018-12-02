@@ -10,10 +10,11 @@
 
 namespace App\UMS\Service;
 
+use App\UMS\Contract\MemberServiceContract;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;
 
-class MemberService
+class MemberService implements MemberServiceContract
 {
     private $groupService;
     private $userService;
@@ -64,7 +65,7 @@ class MemberService
      * @param int $userId
      * @throws EntityNotFoundException
      */
-    public function remove(int $groupId, int $userId)
+    public function remove(int $groupId, int $userId):void
     {
         $group = $this->groupService->get($groupId);
         $user = $this->userService->get($userId);

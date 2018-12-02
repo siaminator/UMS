@@ -2,8 +2,8 @@
 
 namespace App\UMS\Controller\Api;
 
+use App\UMS\Contract\GroupServiceContract;
 use App\UMS\Exception\NotEmptyGroupException;
-use App\UMS\Service\GroupService;
 use Doctrine\ORM\EntityNotFoundException;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -19,7 +19,13 @@ class GroupController extends FOSRestController
 {
     private $groupService;
 
-    public function __construct(GroupService $groupService)
+    /**
+     * GroupController constructor.
+     *
+     * GroupController constructor.
+     * @param GroupServiceContract $groupService
+     */
+    public function __construct(GroupServiceContract $groupService)
     {
         $this->groupService = $groupService;
     }

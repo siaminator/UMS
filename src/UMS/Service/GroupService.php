@@ -1,7 +1,6 @@
 <?php
 /**
  * A Service for updating group entities adding/removing
-
  * Created by PhpStorm.
  * User: Foad
  * Date: 12/01/2018
@@ -10,13 +9,14 @@
 
 namespace App\UMS\Service;
 
+use App\UMS\Contract\GroupServiceContract;
 use App\UMS\Entity\Group;
 use App\UMS\Exception\NotEmptyGroupException;
 use App\UMS\Repository\GroupRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;
 
-class GroupService
+class GroupService implements GroupServiceContract
 {
     private $groupRepository;
     private $entityManager;
@@ -44,10 +44,10 @@ class GroupService
      * Deletes a group if it has not members
      *
      * @param int $groupId
-     * @return bool | false in case not deletable because of attached members
-     * @throws EntityNotFoundException|NotEmptyGroupException
+     * @return void
+     * @throws EntityNotFoundException
      */
-    public function delete(int $groupId): bool
+    public function delete(int $groupId): void
     {
         $group = $this->get($groupId);
 
@@ -56,7 +56,6 @@ class GroupService
 
         $this->entityManager->remove($group);
         $this->entityManager->flush();
-        return true;
     }
 
     /**

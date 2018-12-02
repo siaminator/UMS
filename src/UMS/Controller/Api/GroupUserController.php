@@ -2,7 +2,7 @@
 
 namespace App\UMS\Controller\Api;
 
-use App\UMS\Service\MemberService;
+use App\UMS\Contract\MemberServiceContract;
 use Doctrine\ORM\EntityNotFoundException;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
@@ -22,10 +22,10 @@ class GroupUserController extends FOSRestController
     /**
      * GroupUserController constructor.
      *
-     * @param MemberService $memberService
+     * @param MemberServiceContract $memberService
      * @param RequestStack $request
      */
-    public function __construct(MemberService $memberService, RequestStack $request)
+    public function __construct(MemberServiceContract $memberService, RequestStack $request)
     {
         $this->memberService = $memberService;
         $this->request = $request->getCurrentRequest();
